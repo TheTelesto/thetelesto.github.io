@@ -329,6 +329,10 @@ document.addEventListener("DOMContentLoaded", () => {
             currentCarouselIndex = index;
             updateCarousel();
             resetAutoplay(); // Reset autoplay countdown on item click
+            const link = item.getAttribute('data-link');
+            if (link) {
+                window.location.href = link;
+            }
         });
     });
 

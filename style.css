@@ -35,6 +35,8 @@ nav {
 nav .logo {
     margin-right: auto;
     padding-left: 20px;
+    text-decoration: none !important;  /* Forces removal of underline */
+    color: inherit !important;         /* Ensures it uses the correct color */
 }
 
 nav .logo h1 {
@@ -42,10 +44,29 @@ nav .logo h1 {
     font-weight: 700; /* Use a bolder weight if needed */
     color: #fff;
     transition: font-size 0.3s ease;
+    text-decoration: none;
 }
 
 header.scrolled .logo h1 {
     font-size: 1.5rem;
+    text-decoration: none;  /* Removes underline */
+    color: inherit;         /* Inherits color from parent element */
+}
+/* Remove underline and inherit color for all states of the anchor tag */
+nav .logo a,
+nav .logo a:visited,
+nav .logo a:hover,
+nav .logo a:focus {
+    text-decoration: none !important; /* Forces removal of underline */
+    color: inherit !important;        /* Inherit color from parent */
+}
+
+/* Logo text styling */
+nav .logo h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff; /* Logo text color */
+    transition: font-size 0.3s ease;
 }
 
 /* Centered navigation */
