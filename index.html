@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio website for showcasing work and skills.">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-pVnQv8xPU0Rk+Hk7e1mM9I1GupE/Zed1PNJ1rFlD94gK7ZZMViw+TjJDKvSLU1aEw0kFLnEJMbzT+SjrdEw3Ug==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" 
+    />
+</head>
+<body>
+        <!-- Global Navbar -->
+        <header>
+            <nav>
+                <div class="logo">
+                    <h1>My Portfolio</h1>
+                </div>
+                <ul>
+                    <li class="dropdown">
+                        <a href="#modules">Modules</a>
+                        <ul class="dropdown-content">
+                            <li><a href="#module1">Module 1</a></li>
+                            <li><a href="#module2">Module 2</a></li>
+                            <li><a href="#module3">Module 3</a></li>
+                            <li><a href="#module4">Module 4</a></li>
+                            <li><a href="#module5">Module 5</a></li>
+                            <li><a href="#module6">Module 6</a></li>
+                            <li><a href="#module7">Module 7</a></li>
+                            <li><a href="#module8">Module 8</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#learning-activities">Learning Activities</a></li>
+                    <li class="dropdown">
+                        <a href="#reflections">Reflections</a>
+                        <ul class="dropdown-content">
+                            <li><a href="#reflection1">Reflection 1</a></li>
+                            <li><a href="#reflection2">Reflection 2</a></li>
+                            <li><a href="#reflection3">Reflection 3</a></li>
+                            <li><a href="#reflection4">Reflection 4</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+    <div class="page-container">
+        <!-- Main Content Page -->
+        <div class="page main-page">
+
+            <!-- Content sections -->
+            <section id="modules" class="hero">
+                <h1>Modules Overview</h1>
+                <p>Explore the different modules I've completed.</p>
+                <div class="modules-clock">
+                    <a href="module1.html" class="module">Module 1</a>
+                    <a href="module2.html" class="module">Module 2</a>
+                    <a href="module3.html" class="module">Module 3</a>
+                    <a href="module4.html" class="module">Module 4</a>
+                    <a href="module5.html" class="module">Module 5</a>
+                    <a href="module6.html" class="module">Module 6</a>
+                    <a href="module7.html" class="module">Module 7</a>
+                    <a href="module8.html" class="module">Module 8</a>
+                </div>
+            </section>
+
+            <footer>
+                <p>&copy; 2024 Your Name</p>
+            </footer>
+        </div>
+
+        <!-- New Page Content (Middle Page) -->
+        <!-- New Page Content (Middle Page) -->
+<div class="page new-page">
+
+    <section>
+        <!-- Carousel Container -->
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-description="Description for Option 1.">
+                        <h3>Reflection One</h3>
+                    </div>
+                    <div class="carousel-item" data-description="Description for Option 2.">
+                        <h3>Reflection Two</h3>
+                    </div>
+                    <div class="carousel-item" data-description="Description for Option 3.">
+                        <h3>Reflection Three</h3>
+                    </div>
+                    <div class="carousel-item" data-description="Description for Option 3.">
+                        <h3>Reflection Four</h3>
+                    </div>
+                    <!-- Add more carousel items as needed -->
+                </div>
+                <!-- Navigation Buttons -->
+                <button class="carousel-control prev" aria-label="Previous Slide">
+                    &#10094;
+                </button>
+                <button class="carousel-control next" aria-label="Next Slide">
+                    &#10095;
+                </button>
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <span class="indicator active" data-slide-to="0"></span>
+                    <span class="indicator" data-slide-to="1"></span>
+                    <span class="indicator" data-slide-to="2"></span>
+                    <span class="indicator" data-slide-to="3"></span>
+                    <!-- Add more indicators corresponding to carousel items -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Description Container -->
+        <div class="carousel-description">
+            <p id="carousel-description">Click on a carousel item to see its description here.</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Your Name</p>
+    </footer>
+</div>
+
+        <!-- Third Page Content (Far Left Page) -->
+        <div class="page third-page">
+            <header>
+                <h1>Projects</h1>
+            </header>
+            <section>
+                <p>Here you can showcase your projects, detailing each one with descriptions, images, and links.</p>
+                <p>Customize this section to highlight your best work.</p>
+            </section>
+            <footer>
+                <p>&copy; 2024 Your Name</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Fixed Navigation Bar at the Bottom -->
+    <div class="fixed-nav">
+        <button class="nav-button prev-button" aria-label="Go to Previous Page">
+            &#9664; <!-- Left Arrow -->
+        </button>
+        <button class="nav-button next-button" aria-label="Go to Next Page">
+            &#9654; <!-- Right Arrow -->
+        </button>
+    </div>
+    
+
+ 
+    <button id="slider-button" aria-label="Toggle Page Slide" class="slider-button-right">
+        <i class="fas fa-arrow-right"></i> <!-- Font Awesome Icon -->
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

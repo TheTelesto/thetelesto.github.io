@@ -1,0 +1,685 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+/* Header styling */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: padding 0.3s ease-in-out, background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    align-items: center; /* Align the items in the middle */
+    justify-content: space-between; /* Ensure the logo and navigation items are spaced appropriately */
+    position: relative;
+}
+
+nav .logo {
+    margin-right: auto;
+    padding-left: 20px;
+}
+
+nav .logo h1 {
+    font-size: 1.8rem;
+    font-weight: 700; /* Use a bolder weight if needed */
+    color: #fff;
+    transition: font-size 0.3s ease;
+}
+
+header.scrolled .logo h1 {
+    font-size: 1.5rem;
+}
+
+/* Centered navigation */
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+}
+
+nav ul li {
+    position: relative;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600; /* Use a bolder weight */
+    padding: 8px 0;
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #ffcc00;
+    transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Dropdown menu styling */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease-in-out;
+}
+
+.dropdown-content li {
+    width: 100%;
+}
+
+.dropdown-content li a {
+    padding: 10px 15px;
+    display: block;
+    text-align: left;
+    font-size: 16px;
+    color: white;
+}
+
+.dropdown-content li a:hover {
+    background-color: #444;
+    color: #ffcc00;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    animation: dropdown-slide 0.4s ease-in-out;
+}
+
+/* Dropdown slide-down animation */
+@keyframes dropdown-slide {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero section */
+.hero {
+    background: url('hero-image.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #333;
+    position: relative;
+    flex-direction: column;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    position: relative;
+    z-index: 1;
+    color: black;
+    font-weight: 700; /* Use a bolder weight if needed */
+
+}
+
+.hero p {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 1;
+    color: black;
+    font-weight: 300; /* Use a lighter weight if needed */
+}
+
+.hero .modules-clock {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 0;
+}
+
+.hero .module {
+    position: absolute;
+    color: grey;
+    font-size: 1.2rem;
+    font-weight: 600; /* Adjust weight as needed */
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+}
+
+.hero .module:hover {
+    transform: translate(-50%, -50%) translateY(10px);
+    background-color: white;
+    color: grey;
+}
+
+.hero .module-description {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(40px); /* Move further down initially */
+    opacity: 0;
+    visibility: hidden;
+    background-color: #fff;
+    color: #333;
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.hero .module:hover .module-description {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(10px); /* Slide up to its final position */
+}
+
+/* Positioning modules around the hero section evenly spaced like a clock */
+.hero .module:nth-child(1) { top: 22%; left: 50%; }
+.hero .module:nth-child(2) { top: 32%; left: 65%; }
+.hero .module:nth-child(3) { top: 48%; left: 75%; }
+.hero .module:nth-child(4) { top: 62%; left: 65%; }
+.hero .module:nth-child(5) { top: 74%; left: 50%; }
+.hero .module:nth-child(6) { top: 62%; left: 35%; }
+.hero .module:nth-child(7) { top: 48%; left: 25%; }
+.hero .module:nth-child(8) { top: 32%; left: 35%; }
+
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* Form and footer styling */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form label {
+    margin-top: 10px;
+}
+
+form input, form textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* Page Container */
+.page-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Individual Pages */
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds viewport */
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Main Page - Always in View */
+.main-page {
+    transform: translateX(0);
+}
+
+/* New Page initially hidden to the right */
+.new-page {
+    transform: translateX(100%);
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    /* Additional styles as needed */
+}
+
+/* Third Page initially hidden further to the right */
+.third-page {
+    transform: translateX(200%);
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    /* Additional styles as needed */
+}
+
+/* Slide to New Page */
+.page-container.slide-left .main-page {
+    transform: translateX(-100%);
+}
+
+.page-container.slide-left .new-page {
+    transform: translateX(0);
+}
+
+.page-container.slide-left .third-page {
+    transform: translateX(100%);
+}
+
+/* Slide to Third Page */
+.page-container.slide-middle .main-page {
+    transform: translateX(-100%);
+}
+
+.page-container.slide-middle .new-page {
+    transform: translateX(-100%);
+}
+
+.page-container.slide-middle .third-page {
+    transform: translateX(0);
+}
+
+/* Slide to Main Page */
+.page-container.slide-right .main-page {
+    transform: translateX(0);
+}
+
+.page-container.slide-right .new-page {
+    transform: translateX(100%);
+}
+
+.page-container.slide-right .third-page {
+    transform: translateX(200%);
+}
+
+/* Slider Button Base Styles */
+#slider-button {
+    position: fixed;
+    bottom: 80px; /* Adjusted to make space for fixed-nav */
+    background-color: white;
+    color: #fff;
+    border: none;
+    padding: 0; /* Remove default padding */
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1003; /* Ensure it stays above navigation */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    animation: pulse 2s infinite; /* Added pulse animation */
+}
+
+.slider-button-right {
+    right: 20px;
+}
+
+.slider-button-left {
+    left: 20px;
+}
+
+/* Slider Button Hover Effect */
+#slider-button:hover {
+    background-color: #555;
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Optional: Adjust icon size within the button */
+#slider-button i {
+    font-size: 20px;
+}
+
+/* Fixed Navigation Bar at the Bottom */
+.fixed-nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 1002; /* Above main content but below slider button */
+}
+
+/* Navigation Buttons */
+.nav-button {
+    background-color: rgba(51, 51, 51, 0.8);
+    color: #fff; /* Ensures icon color is white */
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover Effects (Optional but Enhances UX) */
+.nav-button:hover {
+    background-color: rgba(51, 51, 51, 1); /* Darker background on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Styling the Icon Inside the Button */
+.nav-button i {
+    font-size: 1.5rem; /* Adjust icon size as needed */
+    pointer-events: none; /* Ensures clicks are registered on the button, not the icon */
+}
+
+/* Specific Buttons */
+.prev-button {
+    /* Additional styles if needed */
+}
+
+.next-button {
+    /* Additional styles if needed */
+}
+/* Existing styles ... */
+
+/* Carousel Container */
+/* ----- Advanced Carousel Styling ----- */
+
+/* ----- Carousel Section Enhancements ----- */
+
+/* Carousel Container */
+.carousel-container {
+    position: relative;
+    max-width: 800px; /* Adjust as needed */
+    margin: 40px auto; /* Centers the carousel and adds vertical spacing */
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Carousel Inner */
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Carousel Items */
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 30px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    transform: scale(1.02);
+}
+
+/* Carousel Images */
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.carousel-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Carousel Titles */
+.carousel-item h3 {
+    margin-top: 15px;
+    font-size: 1.8rem;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Navigation Buttons */
+/* ----- Enhanced Carousel Navigation Buttons ----- */
+
+/* Base Styles for Carousel Controls */
+/* Base Styles for Carousel Controls */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    border: none;
+    color: #333;
+    width: 50px; /* Explicit width */
+    height: 50px; /* Explicit height */
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+    box-sizing: border-box; /* Include padding and border in total size */
+}
+
+.carousel-control:hover {
+    background: linear-gradient(135deg, #f0f0f0 0%, #ffffff 100%);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-50%) scale(1.1);
+    opacity: 1;
+}
+
+.carousel-control.prev {
+    left: 20px;
+}
+
+.carousel-control.next {
+    right: 20px;
+}
+
+.carousel-control i {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.carousel-control:hover i {
+    transform: rotate(20deg);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .carousel-control {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .carousel-control i {
+        font-size: 1.2rem;
+    }
+}
+
+/* Indicators */
+.carousel-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.carousel-indicators .indicator {
+    display: inline-block;
+    height: 14px;
+    width: 14px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-indicators .indicator.active {
+    background-color: #717171;
+    transform: scale(1.2);
+}
+
+/* Description Container */
+.carousel-description {
+    max-width: 800px;
+    margin: 25px auto;
+    padding: 20px 25px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#carousel-description {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Fade-In Animation for Description */
+.carousel-description.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.carousel-description.fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* Responsive Design Enhancements */
+@media (max-width: 1024px) {
+    .carousel-container {
+        max-width: 700px;
+    }
+
+    .carousel-item h3 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-container {
+        max-width: 90%;
+    }
+
+    .carousel-item {
+        padding: 20px;
+    }
+
+    .carousel-item h3 {
+        font-size: 1.4rem;
+    }
+
+    .carousel-control {
+        padding: 10px 14px;
+    }
+
+    .carousel-indicators .indicator {
+        height: 12px;
+        width: 12px;
+    }
+
+    .carousel-description {
+        padding: 15px 20px;
+    }
+
+    #carousel-description {
+        font-size: 1em;
+    }
+}
